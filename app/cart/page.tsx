@@ -1,6 +1,7 @@
 import CartItemsList from "@/components/cart/CartItemsList"
 import CartTotals from "@/components/cart/CartTotals"
 import SectionTitle from "@/components/home/SectionTitle"
+import LoadingCart from "@/global/LoadingCart"
 import { fetchOrCreateCart, updateCart } from "@/utils/action"
 import { SignedIn, SignInButton } from "@clerk/nextjs"
 import { auth } from "@clerk/nextjs/server"
@@ -23,7 +24,7 @@ async function CartPage() {
   if (cartItems.length === 0) {
     return <SectionTitle text="Empty cart" />
   }
-
+  // return <LoadingCart />
   return (
     <>
       <SectionTitle text="Shopping Cart" />

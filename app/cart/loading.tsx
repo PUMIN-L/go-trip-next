@@ -1,7 +1,7 @@
-import React from "react"
+import LoadingCart from "@/global/LoadingCart"
 
 function loading() {
-  return <div>loading</div>
+  return <LoadingCart />
 }
 
 export default loading

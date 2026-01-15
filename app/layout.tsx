@@ -23,9 +23,12 @@ export default function RootLayout({
         <body>
           <LoadingProviders>
             <Providers>
-              <Navbar />
+              <Suspense fallback={null}>
+                {" "}
+                <Navbar />
+              </Suspense>
               <Container className="py-15 ">
-                <Suspense fallback={null}>{children}</Suspense>
+                <Suspense fallback={null}> {children}</Suspense>
               </Container>
             </Providers>
           </LoadingProviders>
