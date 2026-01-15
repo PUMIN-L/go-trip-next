@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { FiPlusCircle } from "react-icons/fi"
 import { AiOutlineMinusCircle } from "react-icons/ai"
 
-function ProductAmount({ prevAmount }: { prevAmount: number }) {
+function ProductAmount({ prevAmount }: { prevAmount?: number }) {
   const initAmount = prevAmount ? prevAmount : 1
 
   const [amount, setAmount] = useState(initAmount)
