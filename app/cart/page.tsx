@@ -1,17 +1,15 @@
 import CartItemsList from "@/components/cart/CartItemsList"
 import CartTotals from "@/components/cart/CartTotals"
 import SectionTitle from "@/components/home/SectionTitle"
-import LoadingCart from "@/global/LoadingCart"
 import { fetchOrCreateCart, updateCart } from "@/utils/action"
-import { SignedIn, SignInButton } from "@clerk/nextjs"
-import { auth } from "@clerk/nextjs/server"
+import { currentUser } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 
 async function CartPage() {
-  const { userId } = await auth()
+  const user = await currentUser()
 
-  if (!userId) redirect("/")
-  const previousCart = await fetchOrCreateCart(userId)
+  if (!user) redirect("/")
+  const previousCart = await fetchOrCreateCart(user.id)
   if (!previousCart) redirect("/")
 
   const carthData = await updateCart(previousCart.id)

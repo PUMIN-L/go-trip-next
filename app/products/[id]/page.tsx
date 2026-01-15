@@ -5,7 +5,8 @@ import SubmitReview from "@/reviews/SubmitReview"
 import AddToCart from "@/single-product/AddToCard"
 import ProductRating from "@/single-product/ProductRating"
 import { fetchAdminProductDetails, findExistingReview } from "@/utils/action"
-import { auth } from "@clerk/nextjs/server"
+import { currentUser } from "@clerk/nextjs/server"
+
 import Image from "next/image"
 
 async function SingleProductPage({ params }: { params: { id: string } }) {
@@ -17,7 +18,8 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
   if (product === null) return <EmptyList />
 
   const { image, name, country, description, price } = product
-  if (!auth()) return <EmptyList />
+  const user = await currentUser()
+  if (user) return <EmptyList />
 
   return (
     <section>
