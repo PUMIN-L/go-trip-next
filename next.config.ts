@@ -1,7 +1,34 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "", // optional
+        pathname: "/**" // optional, ถ้าอนุญาตทุก path
+      },
+      {
+        protocol: "https",
+        hostname: "uvazgxncfhreebrhkfbm.supabase.co",
+        port: "", // optional
+        pathname: "/**" // optional, ถ้าอนุญาตทุก path
+      },
+      {
+        protocol: "https",
+        hostname: "img.clerk.com",
+        port: "", // optional
+        pathname: "/**" // optional, ถ้าอนุญาตทุก path
+      }
+    ]
+  },
 
-export default nextConfig;
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "4mb"
+    }
+  }
+}
+
+export default nextConfig
