@@ -1,3 +1,4 @@
+"use client"
 import { Input } from "@/components/ui/input"
 import React, { useState } from "react"
 import { FiPlusCircle } from "react-icons/fi"

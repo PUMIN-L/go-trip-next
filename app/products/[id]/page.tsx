@@ -1,25 +1,31 @@
+import { Button } from "@/components/ui/button"
 import BreadCrumbs from "@/global/BreadCrumbs"
 import EmptyList from "@/global/EmptyList"
 import ProductReviews from "@/reviews/ProductReviews"
 import SubmitReview from "@/reviews/SubmitReview"
 import AddToCart from "@/single-product/AddToCard"
 import ProductRating from "@/single-product/ProductRating"
-import { fetchAdminProductDetails, findExistingReview } from "@/utils/action"
+import { fetchAdminProductDetails } from "@/utils/action"
+import { SignInButton } from "@clerk/nextjs"
 import { currentUser } from "@clerk/nextjs/server"
 
 import Image from "next/image"
 
 async function SingleProductPage({ params }: { params: { id: string } }) {
-  //
   const resolvedParams = await params
+  const user = await currentUser()
+
   const productId = resolvedParams?.id
+
   const product = await fetchAdminProductDetails(productId)
 
   if (product === null) return <EmptyList />
 
   const { image, name, country, description, price } = product
-  const user = await currentUser()
-  if (user) return <EmptyList />
+
+  if (!product) {
+    return <EmptyList />
+  }
 
   return (
     <section>
@@ -53,7 +59,17 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
         </div>
       </div>
       <ProductReviews productId={productId} />
-      <SubmitReview productId={productId} />
+      {user !== null ? (
+        <SubmitReview productId={productId} />
+      ) : (
+        <SignInButton mode="modal">
+          <Button asChild>
+            <button className="  text-start cursor-pointer">
+              Login for create reviews
+            </button>
+          </Button>
+        </SignInButton>
+      )}
     </section>
   )
 }
