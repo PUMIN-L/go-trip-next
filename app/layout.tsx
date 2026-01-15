@@ -5,6 +5,7 @@ import Providers from "./providers"
 import Container from "@/global/Container"
 import { ClerkProvider } from "@clerk/nextjs"
 import LoadingProviders from "@/context/loadingProviders"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
   title: "Go Trip",
@@ -23,7 +24,9 @@ export default function RootLayout({
           <LoadingProviders>
             <Providers>
               <Navbar />
-              <Container className="py-15 ">{children}</Container>
+              <Container className="py-15 ">
+                <Suspense fallback={null}>{children}</Suspense>
+              </Container>
             </Providers>
           </LoadingProviders>
         </body>
