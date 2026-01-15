@@ -1,10 +1,9 @@
 "use client"
 
-import LoadingContainer from "@/global/LoadingContainer"
-import LoadingTable from "@/global/LoadingTable"
+import LoadingContainerProductPage from "@/global/LoadingContainerProductPage"
 
 function loading() {
-  return <LoadingContainer />
+  return <LoadingContainerProductPage />
 }
 
 export default loading

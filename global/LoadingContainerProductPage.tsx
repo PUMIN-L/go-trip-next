@@ -1,17 +1,21 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
-function LoadingContainer() {
+function LoadingContainerProductPage() {
   return (
-    <div className="mt-14">
+    <>
+      <Skeleton className="h-8 w-40" />
       <Skeleton className="h-8 w-50 mt-5" />
       <Skeleton className="h-1 w-full mt-5" />
       <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <LoadingProduct />
         <LoadingProduct />
         <LoadingProduct />
+        <LoadingProduct />
+        <LoadingProduct />
+        <LoadingProduct />
       </div>
-    </div>
+    </>
   )
 }
 
@@ -26,4 +30,4 @@ function LoadingProduct() {
     </Card>
   )
 }
-export default LoadingContainer
+export default LoadingContainerProductPage
