@@ -1,5 +1,4 @@
-import React from "react"
-
+export const dynamic = "force-dynamic"
 function page() {
   return (
     <div className="grid grid-cols-3 gap-4 h-96">

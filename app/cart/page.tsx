@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"
 import CartItemsList from "@/components/cart/CartItemsList"
 import CartTotals from "@/components/cart/CartTotals"
 import SectionTitle from "@/components/home/SectionTitle"

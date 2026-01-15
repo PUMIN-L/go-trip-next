@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"
 import { IconButton } from "@/components/form/Buttons"
 import FormContainer from "@/components/form/FormContainer"
 import {
