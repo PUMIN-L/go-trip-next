@@ -3,7 +3,6 @@ import { Button } from "../ui/button"
 import { LuShoppingCart } from "react-icons/lu"
 import { fetchOrCreateCart } from "@/utils/action"
 import { currentUser } from "@clerk/nextjs/server"
-import { redirect } from "next/navigation"
 
 async function CartButton() {
   const user = await currentUser()

@@ -106,9 +106,7 @@ export const createProductAction = async (
       })
     }
 
-    // redirect("/admin/products")
     return { message: "Product created", redirect: "/admin/products" }
-    // return { message: "Product created" }
   } catch (error) {
     return renderError(error)
   }
