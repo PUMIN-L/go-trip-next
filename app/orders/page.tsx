@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"
 import SectionTitle from "@/components/home/SectionTitle"
 import {
   Table,

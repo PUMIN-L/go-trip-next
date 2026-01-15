@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"
 import ProductsContainer from "@/components/products/ProductsConainer"
 
 async function ProductsPage({

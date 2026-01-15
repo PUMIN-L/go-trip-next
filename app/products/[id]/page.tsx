@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic"
 import { Button } from "@/components/ui/button"
 import BreadCrumbs from "@/global/BreadCrumbs"
 import EmptyList from "@/global/EmptyList"
