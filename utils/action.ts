@@ -439,7 +439,7 @@ export const removeCartItemAction = async (
     if (!cartItemId || typeof cartItemId !== "string") {
       throw new Error("Cart item id is required")
     }
-    console.log("cartId --- > ", cartId)
+
     if (!cartId || typeof cartId !== "string") {
       throw new Error("Cart id is required")
     }

@@ -1,8 +1,4 @@
-import {
-  clerkMiddleware,
-  createRouteMatcher,
-  currentUser
-} from "@clerk/nextjs/server"
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
 
 const isPublicRoute = createRouteMatcher(["/", "/products(.*)", "/about"])
@@ -22,5 +18,5 @@ export default clerkMiddleware(async (auth, req) => {
 })
 
 export const config = {
-  matcher: ["/((?!_next|_not-found|favicon.ico).*)", "/(api|trpc)(.*)"]
+  matcher: ["/((?!_next|favicon.ico).*)"]
 }
