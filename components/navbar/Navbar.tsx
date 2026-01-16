@@ -3,7 +3,7 @@ import NavSearch from "./NavSearch"
 import CartButton from "./CartButton"
 import ModeToggle from "./ModeToggle"
 import Container from "@/global/Container"
-import LinksDropdown from "./LinksDropdown"
+import LinkDropdown from "./LinksDropdown"
 
 function Navbar() {
   return (
@@ -14,7 +14,7 @@ function Navbar() {
         <div className="flex gap-5 items-center">
           <CartButton />
           <ModeToggle />
-          <LinksDropdown />
+          <LinkDropdown />
         </div>
       </Container>
     </nav>

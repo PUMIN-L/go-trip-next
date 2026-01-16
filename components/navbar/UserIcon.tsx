@@ -1,9 +1,15 @@
-import { currentUser } from "@clerk/nextjs/server"
+"use client"
+import { useUser } from "@clerk/nextjs"
+import { ReloadIcon } from "@radix-ui/react-icons"
 import { LuUser } from "react-icons/lu"
 
-async function UserIcon() {
-  const user = await currentUser()
+function UserIcon() {
+  const { user, isLoaded } = useUser()
   const profileImage = user?.imageUrl
+
+  if (!isLoaded) {
+    return <ReloadIcon className=" animate-spin" />
+  }
 
   if (user) {
     return (
