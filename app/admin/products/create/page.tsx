@@ -26,14 +26,16 @@ function page() {
                 type="text"
                 name="name"
                 label="Trip name"
-                defaultValue={name}
+                placeholder="Trip name"
+                // defaultValue={name}
               />
 
               <FormInput
                 type="text"
                 name="country"
                 label="country"
-                defaultValue={country}
+                placeholder="Country"
+                // defaultValue={country}
               />
               <PriceInput />
               <ImageInput />
@@ -42,7 +44,8 @@ function page() {
             <TextAreaInput
               name="description"
               labelText="product description"
-              defaultValue={description}
+              placeholder="Product Description"
+              // defaultValue={description}
             />
             <div className="my-5">
               <CheckboxInput name="trendingTrip" label="Trending Trip" />
