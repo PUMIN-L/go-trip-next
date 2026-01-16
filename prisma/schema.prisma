@@ -3,14 +3,15 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Product {
   id           String     @id @default(uuid())
   name         String
   country      String
-  description  String
+  description  String     @db.Text
   trendingTrip Boolean    @map("trending-trip")
   image        String
   price        Int

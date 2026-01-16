@@ -11,9 +11,7 @@ import {
   reviewSchema,
   validateWithZodSchema
 } from "./schemas"
-import { NextResponse } from "next/server"
 import { Product } from "@prisma/client"
-import { error } from "console"
 
 const renderError = (error: unknown): { message: string } => {
   console.log(error)
@@ -51,8 +49,8 @@ export const fetchProductsOnProductPage = async (search?: string) => {
     where: keyword
       ? {
           OR: [
-            { name: { contains: keyword, mode: "insensitive" } },
-            { country: { contains: keyword, mode: "insensitive" } }
+            { name: { contains: keyword } },
+            { country: { contains: keyword } }
           ]
         }
       : undefined,
@@ -129,7 +127,11 @@ export const fetchAdminProductDetails = async (
 }
 
 export const fetchAllProducts = async () => {
-  const products = await db.product.findMany()
+  const products = await db.product.findMany({
+    // orderBy: {
+    //   createdAt: "asc"
+    // }
+  })
   return products
 }
 
