@@ -12,27 +12,31 @@ async function MyReviews() {
   if (!reviews || !reviews[0]) {
     return (
       <>
-        <h1 className="text-2xl mb-5">Review (0)</h1>
+        <h1 className="text-2xl mb-5">Your Review (0)</h1>
         <Separator />
       </>
     )
   }
 
   return (
-    <div className="grid sm:grid-cols-2 gap-5">
-      {reviews?.map((item) => {
-        const reviewInfo = {
-          comment: item.comment,
-          rating: item.rating,
-          name: item.product.name,
-          image: item.product.image,
-          clerkId: item.clerkId,
-          id: item.id,
-          pathName: `/products/${item.product.id}`
-        }
-        return <ReviewCard key={reviewInfo.id} reviewInfo={reviewInfo} />
-      })}
-    </div>
+    <>
+      <h1 className="text-2xl mb-5">Your Review ({reviews.length})</h1>
+      <Separator />
+      <div className="grid sm:grid-cols-2 gap-5 mt-10">
+        {reviews?.map((item) => {
+          const reviewInfo = {
+            comment: item.comment,
+            rating: item.rating,
+            name: item.product.name,
+            image: item.product.image,
+            clerkId: item.clerkId,
+            id: item.id,
+            pathName: `/products/${item.product.id}`
+          }
+          return <ReviewCard key={reviewInfo.id} reviewInfo={reviewInfo} />
+        })}
+      </div>
+    </>
   )
 }
 

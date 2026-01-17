@@ -12,7 +12,7 @@ export const linksSignedOut: NavLink[] = [
 
 export const linksSignedIn: NavLink[] = [
   { id: "home", href: "/", label: "home" },
-  { id: "contecUs", href: "/contect", label: "contec us" },
+  { id: "contecUs", href: "/contact", label: "contact us" },
   { id: "products", href: "/products", label: "products" },
   { id: "cart", href: "/cart", label: "cart" },
   { id: "orders", href: "/orders", label: "my orders" },
@@ -31,7 +31,7 @@ export const adminLinks: NavLink[] = [
 
 export const adminDropdownLinks: NavLink[] = [
   { id: "home", href: "/", label: "home" },
-  { id: "contecUs", href: "/contect", label: "contec us" },
+  { id: "contecUs", href: "/contact", label: "contact us" },
   { id: "products", href: "/products", label: "products" },
   { id: "cart", href: "/cart", label: "cart" },
   { id: "orders", href: "/orders", label: "my orders" },
