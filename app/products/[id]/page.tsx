@@ -27,6 +27,7 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
   if (!product) {
     return <EmptyList />
   }
+
   return (
     <section>
       <BreadCrumbs name={name} />

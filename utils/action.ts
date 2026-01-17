@@ -15,23 +15,23 @@ import { Product } from "@prisma/client"
 
 const renderError = (error: unknown): { message: string } => {
   console.log(error)
-  return {
-    message: error instanceof Error ? error.message : "An error occurred"
-  }
+  const message = error instanceof Error ? error.message : "An error occurred"
+  return { message }
 }
 
 const getAuthUser = async () => {
   const user = await currentUser()
   if (!user) {
-    redirect("/")
+    throw new Error("Must have user login")
   }
   return user
 }
 
 const getAdminUser = async () => {
   const user = await getAuthUser()
+
   if (user?.id !== process.env.ADMIN_USER_ID) {
-    redirect("/")
+    throw new Error("User have to be admin")
   }
   return user
 }
@@ -202,6 +202,26 @@ export const fetchProductReviews = async (productId: string) => {
         createdAt: "desc"
       }
     })
+    return reviews
+  } catch (error) {
+    renderError(error)
+  }
+}
+
+export const fetchReviewsByClerkId = async (clerkId: string | null) => {
+  if (!clerkId) {
+    throw new Error("clerkId is require")
+  }
+  try {
+    const reviews = await db.review.findMany({
+      where: {
+        clerkId
+      },
+      include: {
+        product: true
+      }
+    })
+
     return reviews
   } catch (error) {
     renderError(error)
@@ -521,4 +541,28 @@ export const fetchAdminOrders = async () => {
     }
   })
   return orders
+}
+
+export const deleteReviewAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{ message: string; redirect?: string }> => {
+  try {
+    const reviewId = formData.get("reviewId") as string
+    const userId = formData.get("userId") as string
+    const productId = formData.get("productId") as string
+    const user = await getAuthUser()
+    if (user.id !== userId) {
+      throw new Error("User is incorrect")
+    }
+    await db.review.delete({ where: { id: reviewId } })
+    // revalidatePath(`/product/${productId}`)
+    if (!productId) {
+      return { message: "Deleted review", redirect: `/my-reviews` }
+    }
+    return { message: "Deleted review", redirect: `/products/${productId}` }
+  } catch (error) {
+    const { message } = renderError(error)
+    return { message }
+  }
 }

@@ -15,17 +15,8 @@ export const linksSignedIn: NavLink[] = [
   { id: "contecUs", href: "/contect", label: "contec us" },
   { id: "products", href: "/products", label: "products" },
   { id: "cart", href: "/cart", label: "cart" },
-  { id: "orders", href: "/orders", label: "my orders" }
-]
-
-export const adminLinks: NavLink[] = [
-  { id: "adminSales", href: "/admin/sales", label: "sales" },
-  { id: "adminProducts", href: "/admin/products", label: "my products" },
-  {
-    id: "adminProductsCreate",
-    href: "/admin/products/create",
-    label: "create product"
-  }
+  { id: "orders", href: "/orders", label: "my orders" },
+  { id: "myReviews", href: "/my-reviews", label: "my reviews" }
 ]
 
 export const adminDropdownLinks: NavLink[] = [
@@ -45,5 +36,6 @@ export const adminDropdownLinks: NavLink[] = [
     href: "/admin/products/create",
     label: "create product"
   },
-  { id: "adminProducts", href: "/admin/products", label: "dashboard" }
+  { id: "adminProducts", href: "/admin/products", label: "dashboard" },
+  { id: "myReviews", href: "/my-reviews", label: "my reviews" }
 ]

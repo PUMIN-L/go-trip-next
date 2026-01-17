@@ -20,7 +20,6 @@ function FormContainer({
   const [state, formAction] = useActionState(action, initialState)
   const { toast } = useToast()
   const router = useRouter()
-
   useEffect(() => {
     if (state.message) {
       toast({ description: state.message })

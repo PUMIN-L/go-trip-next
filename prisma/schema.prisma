@@ -37,7 +37,7 @@ model Review {
   id             String   @id @default(uuid())
   clerkId        String
   rating         Int
-  comment        String
+  comment        String   @db.Text
   authorName     String
   authorImageUrl String
   createdAt      DateTime @default(now())

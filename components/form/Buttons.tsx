@@ -4,6 +4,7 @@ import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa"
 import { Button } from "../ui/button"
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { cn } from "@/lib/utils"
+import { ReactNode } from "react"
 
 type actionType = "edit" | "delete"
 
@@ -34,11 +35,11 @@ export const IconButton = ({ actionType }: { actionType: actionType }) => {
   )
 }
 
-type btnSize = "default" | "lg" | "sm"
+type btnSize = "default" | "lg" | "sm" | "icon"
 
 type SubmitButtonProps = {
   className?: string
-  text?: string
+  text?: string | ReactNode
   size?: btnSize
 }
 
@@ -59,7 +60,7 @@ export function SubmitButton({
       {pending ? (
         <>
           <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-          Please wait...
+          {size === "icon" ? null : "Please wait..."}
         </>
       ) : (
         text
