@@ -19,6 +19,16 @@ export const linksSignedIn: NavLink[] = [
   { id: "myReviews", href: "/my-reviews", label: "my reviews" }
 ]
 
+export const adminLinks: NavLink[] = [
+  { id: "adminSales", href: "/admin/sales", label: "sales" },
+  { id: "adminProducts", href: "/admin/products", label: "my products" },
+  {
+    id: "adminProductsCreate",
+    href: "/admin/products/create",
+    label: "create product"
+  }
+]
+
 export const adminDropdownLinks: NavLink[] = [
   { id: "home", href: "/", label: "home" },
   { id: "contecUs", href: "/contect", label: "contec us" },
