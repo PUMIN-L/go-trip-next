@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import BreadCrumbs from "@/global/BreadCrumbs"
 import EmptyList from "@/global/EmptyList"
+import LoadingSingleProduct from "@/global/LoadingSingleProduct"
 import ProductReviews from "@/reviews/ProductReviews"
 import SubmitReview from "@/reviews/SubmitReview"
 import AddToCart from "@/single-product/AddToCard"
@@ -26,7 +27,6 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
   if (!product) {
     return <EmptyList />
   }
-
   return (
     <section>
       <BreadCrumbs name={name} />
