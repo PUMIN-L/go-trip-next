@@ -16,7 +16,8 @@ export const linksSignedIn: NavLink[] = [
   { id: "products", href: "/products", label: "products" },
   { id: "cart", href: "/cart", label: "cart" },
   { id: "orders", href: "/orders", label: "my orders" },
-  { id: "myReviews", href: "/my-reviews", label: "my reviews" }
+  { id: "myReviews", href: "/my-reviews", label: "my reviews" },
+  { id: "myFavorite", href: "/favorite", label: "My favorite trip" }
 ]
 
 export const adminLinks: NavLink[] = [
@@ -47,5 +48,6 @@ export const adminDropdownLinks: NavLink[] = [
     label: "create product"
   },
   { id: "adminProducts", href: "/admin/products", label: "dashboard" },
-  { id: "myReviews", href: "/my-reviews", label: "my reviews" }
+  { id: "myReviews", href: "/my-reviews", label: "my reviews" },
+  { id: "myFavorite", href: "/favorite", label: "My favorite trip" }
 ]

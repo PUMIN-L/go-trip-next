@@ -5,6 +5,7 @@ import { FaRegHeart } from "react-icons/fa"
 import { FaHeart } from "react-icons/fa"
 import { useToast } from "@/hooks/use-toast"
 import { addFavorite, deleteFavorite } from "@/utils/action"
+import { usePathname } from "next/navigation"
 
 function FavoriteForm({
   productId,
@@ -18,6 +19,7 @@ function FavoriteForm({
   const [isfavorite, setIsFavorite] = useState(Boolean(favoriteId))
   const [favoriteIdState, setFavoriteIdState] = useState(favoriteId)
   const { toast } = useToast()
+  const pathname = usePathname()
 
   const handleClickFavoriteToggle = async () => {
     setIsFavorite(!isfavorite)
@@ -31,7 +33,10 @@ function FavoriteForm({
     }
     if (isfavorite) {
       if (typeof favoriteIdState === "string") {
-        const result = await deleteFavorite({ favoriteId: favoriteIdState })
+        const result = await deleteFavorite({
+          favoriteId: favoriteIdState,
+          pathname
+        })
         toast({ description: result })
       }
     }

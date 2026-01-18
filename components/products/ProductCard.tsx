@@ -6,7 +6,13 @@ import { fetchProductRating, fetchProductReviews } from "@/utils/action"
 import Rating from "@/reviews/Rating"
 import FavoriteToggleButton from "../favorite/FavoriteToggleButton"
 
-async function ProductCard({ product }: { product: Product }) {
+async function ProductCard({
+  product,
+  pathname
+}: {
+  product: Product
+  pathname?: string
+}) {
   const { name, price, image, country, id } = product
   const resProductRating = await fetchProductRating(id)
   if (!resProductRating) {
@@ -25,7 +31,7 @@ async function ProductCard({ product }: { product: Product }) {
   return (
     <article key={productId} className="group relative active:scale-99 ">
       <div className=" absolute top-8 right-8 z-5">
-        <FavoriteToggleButton productId={productId} />
+        <FavoriteToggleButton productId={productId} pathname={pathname} />
       </div>
       <Link href={`/products/${productId}`}>
         <Card className="transform group-hover:shadow-xl bg-gray-100   dark:bg-sidebar transition-shadow duration-500">

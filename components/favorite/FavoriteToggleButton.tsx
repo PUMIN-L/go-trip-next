@@ -2,7 +2,13 @@ import { fetchFavorite } from "@/utils/action"
 import { currentUser } from "@clerk/nextjs/server"
 import FavoriteForm from "./FavoriteForm"
 
-async function FavoriteToggleButton({ productId }: { productId: string }) {
+async function FavoriteToggleButton({
+  productId,
+  pathname
+}: {
+  productId: string
+  pathname?: string
+}) {
   const user = await currentUser()
   const userId = user?.id
   if (!userId) {
@@ -16,6 +22,7 @@ async function FavoriteToggleButton({ productId }: { productId: string }) {
       productId={productId}
       userId={userId}
       favoriteId={fevoriteId}
+      pathname={pathname}
     />
   )
 }

@@ -406,7 +406,7 @@ export const addToCartAction = async (
     const clerkId = user.id
     const rawData = { ...Object.fromEntries(formData), clerkId }
     const validatedFields = validateWithZodSchema(cartItemScheam, rawData)
-    const { amount, productId, priceProduct } = validatedFields
+    const { amount, productId } = validatedFields
 
     const cart = await fetchOrCreateCart(clerkId)
     if (cart) {
@@ -610,17 +610,39 @@ export const addFavorite = async ({
 }
 
 export const deleteFavorite = async ({
-  favoriteId
+  favoriteId,
+  pathname
 }: {
   favoriteId: string
+  pathname?: string
 }) => {
   try {
     if (favoriteId) {
-      const result = await db.favorite.delete({
+      await db.favorite.delete({
         where: { id: favoriteId }
       })
+      if (pathname) {
+        revalidatePath(pathname)
+      }
+
       return "Deleted favorite"
     }
+  } catch (error) {
+    renderError(error)
+  }
+}
+
+export const fetchFavoriteProductByUserId = async (clerkId: string) => {
+  try {
+    const products = db.favorite.findMany({
+      where: {
+        clerkId
+      },
+      include: {
+        product: true
+      }
+    })
+    return products
   } catch (error) {
     renderError(error)
   }
