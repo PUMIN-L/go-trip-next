@@ -22,7 +22,6 @@ async function FavoriteToggleButton({
       productId={productId}
       userId={userId}
       favoriteId={fevoriteId}
-      pathname={pathname}
     />
   )
 }
