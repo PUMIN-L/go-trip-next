@@ -1,7 +1,7 @@
+import FavoriteToggleButton from "@/components/favorite/FavoriteToggleButton"
 import { Button } from "@/components/ui/button"
 import BreadCrumbs from "@/global/BreadCrumbs"
 import EmptyList from "@/global/EmptyList"
-import LoadingSingleProduct from "@/global/LoadingSingleProduct"
 import ProductReviews from "@/reviews/ProductReviews"
 import SubmitReview from "@/reviews/SubmitReview"
 import AddToCart from "@/single-product/AddToCard"
@@ -47,8 +47,8 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
         <div>
           <div className="flex gap-x-8 items-center">
             <h1 className="capitalize text-3xl font-bold">{name}</h1>
-            {/* <FavoriteToggleButton productId={productId} /> */}
-            {/* มาทำ */}
+
+            <FavoriteToggleButton productId={productId} />
           </div>
           <ProductRating productId={productId} />
           <h4 className="text-xl mt-2">{country}</h4>

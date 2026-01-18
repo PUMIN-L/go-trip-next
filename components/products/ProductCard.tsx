@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Product } from "@/utils/types"
 import { fetchProductRating, fetchProductReviews } from "@/utils/action"
 import Rating from "@/reviews/Rating"
+import FavoriteToggleButton from "../favorite/FavoriteToggleButton"
 
 async function ProductCard({ product }: { product: Product }) {
   const { name, price, image, country, id } = product
@@ -23,6 +24,9 @@ async function ProductCard({ product }: { product: Product }) {
 
   return (
     <article key={productId} className="group relative active:scale-99 ">
+      <div className=" absolute top-8 right-8 z-5">
+        <FavoriteToggleButton productId={productId} />
+      </div>
       <Link href={`/products/${productId}`}>
         <Card className="transform group-hover:shadow-xl bg-gray-100   dark:bg-sidebar transition-shadow duration-500">
           <CardContent className="">

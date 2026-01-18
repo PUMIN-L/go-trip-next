@@ -566,3 +566,62 @@ export const deleteReviewAction = async (
     return { message }
   }
 }
+
+export const fetchFavorite = async ({
+  userId,
+  productId
+}: {
+  userId: string
+  productId: string
+}) => {
+  try {
+    const favorite = await db.favorite.findFirst({
+      where: { clerkId: userId, productId }
+    })
+    if (favorite) {
+      return favorite
+    }
+    if (!favorite) {
+      return null
+    }
+  } catch (error) {
+    renderError(error)
+  }
+}
+
+export const addFavorite = async ({
+  userId,
+  productId
+}: {
+  userId: string
+  productId: string
+}) => {
+  try {
+    const result = await db.favorite.create({
+      data: {
+        clerkId: userId,
+        productId
+      }
+    })
+    return result
+  } catch (error) {
+    renderError(error)
+  }
+}
+
+export const deleteFavorite = async ({
+  favoriteId
+}: {
+  favoriteId: string
+}) => {
+  try {
+    if (favoriteId) {
+      const result = await db.favorite.delete({
+        where: { id: favoriteId }
+      })
+      return "Deleted favorite"
+    }
+  } catch (error) {
+    renderError(error)
+  }
+}
