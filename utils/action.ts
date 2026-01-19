@@ -634,6 +634,7 @@ export const deleteFavorite = async ({
 
 export const fetchFavoriteProductByUserId = async (clerkId: string) => {
   try {
+    await getAuthUser()
     const products = db.favorite.findMany({
       where: {
         clerkId
@@ -645,5 +646,64 @@ export const fetchFavoriteProductByUserId = async (clerkId: string) => {
     return products
   } catch (error) {
     renderError(error)
+  }
+}
+
+export const fetchCartItems = async (cartId: string) => {
+  try {
+    const res = await db.cartItem.findMany({
+      where: {
+        cartId
+      }
+    })
+    return res
+  } catch (error) {
+    renderError(error)
+  }
+}
+
+export const fetchOrderItems = async (orderId: string) => {
+  try {
+    const orderItems = await db.orderItem.findMany({
+      where: { orderId },
+      include: { product: true }
+    })
+    return orderItems
+  } catch (error) {}
+}
+
+// export const deleteProductAction = async (prevState: { productId: string }) => {
+//   const { productId } = prevState
+//   await getAdminUser()
+
+//   try {
+//     const product = await db.product.delete({
+//       where: {
+//         id: productId
+//       }
+//     })
+
+//     await deleteImage(product.image)
+//     revalidatePath("/admin/products")
+//     return { message: "Product removed" }
+//   } catch (error) {
+//     return renderError(error)
+//   }
+// }
+
+export const deleteOrderAction = async (prevState: {
+  orderId: string
+}): Promise<{ message: string }> => {
+  const { orderId } = prevState
+  await getAdminUser()
+  try {
+    await db.order.delete({
+      where: { id: orderId }
+    })
+    revalidatePath("/admin/sales")
+    return { message: "deleted order" }
+  } catch (error) {
+    renderError(error)
+    return { message: "Delete error" }
   }
 }

@@ -15,7 +15,7 @@ export default function Sidebar() {
         return (
           <Button
             asChild
-            className="w-full mb-2 capitalize font-normal justify-start"
+            className="w-full grid grid-cols-1 sm:w-full mb-2 capitalize font-normal justify-start"
             variant={variant}
             key={link.id}
           >

@@ -40,6 +40,7 @@ async function ItemsPage() {
                   <Link
                     href={`/products/${productId}`}
                     className="underline text-muted-foreground tracking-wide capitalize "
+                    prefetch
                   >
                     {name}
                   </Link>
@@ -48,7 +49,7 @@ async function ItemsPage() {
                 <TableCell>{price}</TableCell>
 
                 <TableCell className="flex items-center gap-x-2">
-                  <Link href={`/admin/products/${productId}/edit`}>
+                  <Link href={`/admin/products/${productId}/edit`} prefetch>
                     <IconButton actionType="edit"></IconButton>
                   </Link>
                   <DeleteProduct productId={productId} />

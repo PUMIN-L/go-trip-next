@@ -33,7 +33,7 @@ export const SecondColumn = ({
 }) => {
   return (
     <div className="sm:w-48">
-      <Link href={`/products/${productId}`}>
+      <Link href={`/products/${productId}`} prefetch>
         <h3 className="capitalize font-medium hover:underline">{name}</h3>
       </Link>
       <h4 className="mt-2 capitalize text-xs">{country}</h4>

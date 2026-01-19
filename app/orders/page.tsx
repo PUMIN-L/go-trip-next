@@ -10,36 +10,44 @@ import {
 } from "@/components/ui/table"
 import { fetchUserOrders } from "@/utils/action"
 import { formatDate } from "@/utils/format"
+import Link from "next/link"
 
 async function OrdersPage() {
   const orders = await fetchUserOrders()
 
   return (
     <>
-      <SectionTitle text="Your Orders" />
+      <SectionTitle text="My Orders" />
+
       <div>
         <Table>
           <TableCaption>Total orders : {orders.length}</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead>
-                Products <small>(amount)</small>
+                Order ID <small>(Click ID to see information)</small>
               </TableHead>
               <TableHead>Order Total</TableHead>
               <TableHead>Tax</TableHead>
-              <TableHead>Shipping</TableHead>
+
               <TableHead>Date</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {orders.map((order) => {
-              const { products, orderTotal, tax, createdAt } = order
+              const { products, orderTotal, tax, createdAt, id } = order
 
               return (
                 <TableRow key={order.id}>
-                  <TableCell>{products}</TableCell>
-                  <TableCell>{orderTotal}</TableCell>
-                  <TableCell>{tax}</TableCell>
+                  <TableCell>
+                    <Link
+                      href={`/order-items/${id}`}
+                      prefetch
+                      className="underline"
+                    >{`${id.slice(0, 23)} . . .`}</Link>
+                  </TableCell>
+                  <TableCell>{orderTotal.toLocaleString()}</TableCell>
+                  <TableCell>{tax.toLocaleString()}</TableCell>
                   <TableCell>{formatDate(createdAt)}</TableCell>
                 </TableRow>
               )

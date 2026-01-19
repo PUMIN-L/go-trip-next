@@ -12,17 +12,19 @@ async function CartButton() {
   const cart = await fetchOrCreateCart(user.id)
 
   return (
-    <Button asChild variant="outline" className="relative">
-      <Link href="/cart" prefetch>
-        <LuShoppingCart />
-        <span
-          className="absolute -top-3 -right-3 rounded-full h-6 w-6 text-ms bg-amber-800 
+    <>
+      <Button asChild variant="outline" className="relative">
+        <Link href="/cart" prefetch>
+          <LuShoppingCart />
+          <span
+            className="absolute -top-3 -right-3 rounded-full h-6 w-6 text-ms bg-amber-800 
         flex justify-center items-center text-white "
-        >
-          {cart?.numItemsInCart || 0}
-        </span>
-      </Link>
-    </Button>
+          >
+            {cart?.numItemsInCart || 0}
+          </span>
+        </Link>
+      </Button>
+    </>
   )
 }
 

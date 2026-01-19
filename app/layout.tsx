@@ -27,7 +27,7 @@ export default function RootLayout({
                 {" "}
                 <Navbar />
               </Suspense>
-              <Container className="py-15 ">
+              <Container className="py-15 -mt-8 sm:mt-0 ">
                 <Suspense fallback={null}> {children}</Suspense>
               </Container>
             </Providers>

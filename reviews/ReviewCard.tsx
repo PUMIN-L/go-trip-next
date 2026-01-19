@@ -48,7 +48,7 @@ async function ReviewCard({
             />
             <div className="ml-4">
               {reviewInfo.pathName ? (
-                <Link href={reviewInfo.pathName}>
+                <Link href={reviewInfo.pathName} prefetch>
                   <h3 className="text-sm font-bold capitalize mb-1 ">
                     {reviewInfo.name}
                   </h3>

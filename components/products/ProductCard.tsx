@@ -33,7 +33,7 @@ async function ProductCard({
       <div className=" absolute top-8 right-8 z-5">
         <FavoriteToggleButton productId={productId} pathname={pathname} />
       </div>
-      <Link href={`/products/${productId}`}>
+      <Link href={`/products/${productId}`} prefetch>
         <Card className="transform group-hover:shadow-xl bg-gray-100   dark:bg-sidebar transition-shadow duration-500">
           <CardContent className="">
             <div className="relative h-48 md:h-48 rounded overflow-hidden">

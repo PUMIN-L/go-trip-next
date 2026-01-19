@@ -24,6 +24,23 @@ export const GET = async (req: NextRequest) => {
         }
       })
 
+      const cartItems = await db.cartItem.findMany({
+        where: {
+          cartId
+        }
+      })
+
+      if (!orderId || !cartId) {
+        throw new Error("Missing Stripe metadata")
+      }
+      await db.orderItem.createMany({
+        data: cartItems.map((cartItem) => ({
+          productId: String(cartItem.productId),
+          orderId: orderId,
+          amount: Number(cartItem.amount)
+        }))
+      })
+
       await db.cart.delete({
         where: {
           id: cartId

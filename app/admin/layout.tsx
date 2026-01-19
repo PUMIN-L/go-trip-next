@@ -6,7 +6,7 @@ function DashboardLayout({ children }: { children: React.ReactNode }) {
     <>
       <h2 className="text-2xl pl-4 pb-5">Dashboard</h2>
       <Separator />
-      <section className="grid lg:grid-cols-12 gap-12 mt-12">
+      <section className="lg:grid lg:grid-cols-12 gap-12 mt-12">
         <div className="lg:col-span-2">
           <Sidebar />
         </div>

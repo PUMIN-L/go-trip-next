@@ -8,7 +8,13 @@ import { ReactNode } from "react"
 
 type actionType = "edit" | "delete"
 
-export const IconButton = ({ actionType }: { actionType: actionType }) => {
+export const IconButton = ({
+  actionType,
+  onClick
+}: {
+  actionType: actionType
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}) => {
   const { pending } = useFormStatus()
 
   const renderIcon = () => {
@@ -28,6 +34,7 @@ export const IconButton = ({ actionType }: { actionType: actionType }) => {
       type="submit"
       size="icon"
       variant="link"
+      onClick={onClick}
       className="p-2 cursor-pointer"
     >
       {pending ? <ReloadIcon className=" animate-spin" /> : renderIcon()}
