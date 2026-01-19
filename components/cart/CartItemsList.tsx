@@ -31,7 +31,7 @@ function CartItemsList({
             </div>
 
             <SecondColumn name={name} country={country} productId={productId} />
-            <div className="hidden">
+            <div className="hidden sm:block">
               <ThirdColumn id={id} quantity={amount} cartId={cartId} />
             </div>
 
