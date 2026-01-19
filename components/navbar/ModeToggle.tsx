@@ -2,7 +2,8 @@
 
 import { useTheme } from "next-themes"
 import { Button } from "../ui/button"
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { CheckIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons"
+import { FaCheck } from "react-icons/fa"
 import { useId } from "react"
 import {
   DropdownMenu,
@@ -12,7 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
   const id = useId()
   return (
     <DropdownMenu>
@@ -27,9 +28,11 @@ function ModeToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
+          {theme === "light" && <FaCheck className="ml-5" />}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
+          {theme === "dark" && <FaCheck className="ml-5" />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
