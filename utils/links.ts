@@ -6,7 +6,7 @@ type NavLink = {
 
 export const linksSignedOut: NavLink[] = [
   { id: "home", href: "/", label: "home" },
-  { id: "contecUs", href: "/contect", label: "contec us" },
+  { id: "contecUs", href: "/contect", label: "contact us" },
   { id: "products", href: "/products", label: "products" }
 ]
 
