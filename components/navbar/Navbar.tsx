@@ -12,7 +12,7 @@ function Navbar() {
         <div className=" hidden sm:block">
           <Logo />
         </div>
-        <div className="mt-2 w-full sm:w-120 sm:mt-0 border ">
+        <div className="mt-2 w-full sm:w-120 sm:mt-0  ">
           <NavSearch />
         </div>
 
