@@ -51,7 +51,9 @@ async function ProductCard({
             </h2>
             <div className="mt-1 text-center">
               <div className="flex flex-col justify-start items-start">
-                <h2 className="text-lg  capitalize tracking-wider">{name}</h2>
+                <h2 className="text-lg text-left capitalize tracking-wider">
+                  {name}
+                </h2>
                 <div className="flex  justify-center items-center gap-1">
                   <small className="text-sm ">
                     {count > 0 ? <Rating rating={reviews[0]?.rating} /> : null}
