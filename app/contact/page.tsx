@@ -16,10 +16,6 @@ export default function ContectUs() {
             </p>
 
             <div className="flex gap-5 lg:text-lg">
-              <span className="text-gray-400 lg:w-16 ">Phone :</span>
-              <span className="w-35 ">062-012-9895</span>
-            </div>
-            <div className="flex gap-5 lg:text-lg">
               <span className="text-gray-400 lg:w-16">Email :</span>
               <span className="w-35 ">puminbg@gmail.com</span>
             </div>
