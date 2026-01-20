@@ -11,8 +11,8 @@ export default function ContectUs() {
 
         <div className="flex flex-col w-60  items-center lg:items-start lg:w-full lg:flex-row ">
           <div className="space-y-3 text-gray-300 text-sm">
-            <p className="text-lg font-medium text-white lg:text-xl">
-              Mr. Pumin Lomwong
+            <p className="text-lg font-medium text-white lg:text-xl ">
+              Mr. Pumin
             </p>
 
             <div className="flex gap-5 lg:text-lg">
@@ -25,7 +25,7 @@ export default function ContectUs() {
               <span className="w-35 ">puminkmutnb</span>
             </div>
           </div>
-          <div className="max-w-30 lg:ml-18 mt-5 lg:mt-4">
+          <div className="max-w-30 lg:ml-18 mt-5 lg:mt-0">
             <img
               src="https://res.cloudinary.com/dtbfee3ql/image/upload/v1766140321/0AADBAA9-DA84-4BF0-A207-61089FC84F25_wlbyyw.jpg"
               alt="ID"
