@@ -17,7 +17,7 @@ function UpdateAmount({
         <AiOutlineMinusCircle
           className="w-6 h-6 cursor-pointer"
           onClick={() =>
-            amount > 1 ? setAmount(Number(amount - 1)) : setAmount(Number(0))
+            amount > 1 ? setAmount(Number(amount - 1)) : setAmount(Number(1))
           }
         />
         <Input

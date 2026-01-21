@@ -15,7 +15,7 @@ function ProductAmount({ prevAmount }: { prevAmount?: number }) {
       <div className="flex items-center gap-3 mt-3">
         <AiOutlineMinusCircle
           className="w-6 h-6 cursor-pointer"
-          onClick={() => (amount > 1 ? setAmount(amount - 1) : setAmount(0))}
+          onClick={() => (amount > 1 ? setAmount(amount - 1) : setAmount(1))}
         />
         <Input
           name="amount"
