@@ -5,7 +5,7 @@ export default function ContectUs() {
         className="max-w-xl mx-auto p-8  bg-gray-900 rounded-2xl 
             shadow-lg flex flex-col items-center w-full  lg:w-full   "
       >
-        <h2 className="text-xl font-semibold text-white  text-center tracking-wide mb-8 lg:mb-6 lg:mb-0 lg:text-2xl">
+        <h2 className="text-xl font-semibold text-white  text-center tracking-wide mb-8  lg:mb-6 lg:text-2xl">
           Contact Information
         </h2>
 
