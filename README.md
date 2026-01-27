@@ -60,6 +60,7 @@ Email: admin+clerk_test@example.com
 Password: Nicole-test222
 
 Tech Stack
+
 Frontend
 
 - Next.js
@@ -68,14 +69,16 @@ Frontend
 - Radix UI (Accessible UI primitives)
 - shadcn/ui (UI components built on Radix UI)
 - next-themes (Light / Dark mode)
-- Backend / Services
+
+Backend / Services
+
 - Clerk (Authentication)
 - Prisma (ORM)
 - TiDB / MySQL
 - Supabase
 - Stripe (Payments)
 
-Dependencies (Main) -->คืออะไร ไม่ต้องใส่ดีป่าว
+Dependencies (Main)
 
 - Next.js
 - React
