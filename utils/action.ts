@@ -26,7 +26,6 @@ const getAuthUser = async () => {
   }
   return user
 }
-
 const getAdminUser = async () => {
   const user = await getAuthUser()
 
@@ -90,9 +89,9 @@ export const createProductAction = async (
     const file = formData.get("image") as File
 
     const validatedFields = validateWithZodSchema(productSchema, rawData)
-    const valifateFile = validateWithZodSchema(imageSchema, { image: file })
+    const validateFile = validateWithZodSchema(imageSchema, { image: file })
 
-    const fullPath = await uploadImage(valifateFile.image)
+    const fullPath = await uploadImage(validateFile.image)
 
     if (admin) {
       await db.product.create({

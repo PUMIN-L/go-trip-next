@@ -5,7 +5,6 @@ async function LinkDropdown() {
   const user = await currentUser()
 
   const isAdmin = user?.id === process.env.ADMIN_USER_ID
-  // return <LinksDropdownClient />
   return <LinksDropdownClient isAdmin={isAdmin} />
 }
 

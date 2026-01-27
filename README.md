@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Features
 
-## Getting Started
+- UI / UX
+  Light / Dark mode toggle
+  Responsive and modern UI
 
-First, run the development server:
+Visitor (Not Logged In)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- View product list
+- View product details
+- Login is required to interact with products (add to cart, like, comment, etc.)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+User Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Register / Login using:
+  Email (via Clerk)
+  LINE (via Clerk)
+- Add products to cart
+- Create orders
+- Checkout using Stripe (Test Mode)
+- Automatically clear cart after successful payment
+- View order history
+- Like / unlike products
+- Comment on products
+- Rate products (average rating shown on product detail page)
+- Delete own comments
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Admin Features
 
-## Learn More
+- Admin can do everything a normal user can
+- Create / Edit / Delete products
+- View all orders from all users
+- Delete any order
 
-To learn more about Next.js, take a look at the following resources:
+Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project uses Clerk
+for authentication and user management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Email & social login
+- Role-based access (User / Admin)
+- Secure session handling
 
-## Deploy on Vercel
+Payments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Payments are implemented using Stripe (Test Mode).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Test Card
+Card Number: 4242 4242 4242 4242
+Expiration Date: 12/29
+CVC: Any 3 digits
+
+Test Accounts
+Test User
+Email: user1+clerk_test@example.com
+Password: user1Fortest1
+
+Admin Account
+Email: admin+clerk_test@example.com
+Password: Nicole-test222
+
+Tech Stack
+Frontend
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Radix UI (Accessible UI primitives)
+- shadcn/ui (UI components built on Radix UI)
+- next-themes (Light / Dark mode)
+- Backend / Services
+- Clerk (Authentication)
+- Prisma (ORM)
+- TiDB / MySQL
+- Supabase
+- Stripe (Payments)
+
+Dependencies (Main) -->คืออะไร ไม่ต้องใส่ดีป่าว
+
+- Next.js
+- React
+- @clerk/nextjs (Authentication)
+- Prisma (ORM)
+- Stripe & @stripe/react-stripe-js (Payments)
+- Supabase JS (Image storage)
+- Tailwind CSS
+- shadcn/ui (UI components)
+
+Environment Variables
+
+Create a .env file in the root directory and configure the following variables:
+DATABASE_URL=your_database_url
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+STRIPE_SECRET_KEY=your_stripe_secret_key
+
+SUPABASE_URL=your_supabase_url  
+SUPABASE_KEY=your_supabase_key
+
+ADMIN_USER_ID=your_admin_user_id
+
+Purpose of This Project
+
+This project was built to:
+
+- Practice full-stack web development with modern tools
+- Demonstrate real-world features (authentication, payments, roles, orders)
+- Serve as a demo project for job applications
+- Deploy a production-like application using Vercel and TiDB Cloud as the database
+
+Notes
+
+All payments use Stripe test mode
+This is a demo project, not intended for production use
